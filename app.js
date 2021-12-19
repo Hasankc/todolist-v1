@@ -35,12 +35,16 @@ app.post("/", function (req, res) {
   } else {
     items.push(item);
     res.redirect("/");
-    console.log(work);
   }
+
 });
 
 app.get("/work", function (req, res) {
   res.render("list", { listTitle: "Work List", newListItems: workItems });
+});
+
+app.get("/about", function(req, res){
+  res.render("about")
 });
 
 app.post("/work", function (req, res) {
