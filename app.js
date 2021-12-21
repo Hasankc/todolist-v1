@@ -7,21 +7,21 @@ const req = require("express/lib/request");
 const res = require("express/lib/response");
 
 const app = express();
-let items = ["Eat food", "Study English", "Go to Gym"];
-let workItems = [];
+const items = ["Eat food", "Study English", "Go to Gym"];
+const workItems = [];
 app.set("view engine", "ejs");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.get("/", function (req, res) {
 
-  let day = date.getDate();
+  const day = date.getDate();
 
   res.render("list", { listTitle: day, newListItems: items });
 });
 
 app.post("/", function (req, res) {
-  let item = req.body.newItem;
+  const item = req.body.newItem;
 
   if (req.body.list === "work") {
     workItems.push(item);
